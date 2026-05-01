@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 26 43% 98%;
+    --foreground: 22 6% 27%;
+    --card: 26 43% 98%;
+    --card-foreground: 22 6% 27%;
+    --popover: 26 43% 98%;
+    --popover-foreground: 22 6% 27%;
+    --primary: 5 81% 73%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 255 20% 43%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 21 56% 96%;
+    --muted-foreground: 0 0% 23%;
+    --accent: 7 100% 88%;
+    --accent-foreground: 22 6% 27%;
+    --destructive: 0 75% 41%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 22 6% 27% / 0.1;
+    --input: 22 6% 27% / 0.1;
+    --ring: 5 81% 73%;
+    --radius: 0.625rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Manrope", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Instrument Serif", serif;
+  }
+
+  .font-heading {
+    font-family: "Instrument Serif", serif;
+  }
+
+  .font-body {
+    font-family: "Manrope", sans-serif;
+  }
+
+  .font-handwritten {
+    font-family: "Manrope", cursive;
+  }
+
+  .card-shadow {
+    box-shadow: 0 8px 32px rgba(242, 140, 130, 0.08);
+  }
+
+  .card-shadow-hover {
+    box-shadow: 0 16px 48px rgba(242, 140, 130, 0.12);
+  }
+
+  .button-shadow {
+    box-shadow: 0 4px 16px rgba(242, 140, 130, 0.25);
+  }
+
+  .glow-effect {
+    box-shadow: 0 0 60px rgba(255, 218, 214, 0.6);
+  }
+
+  .layered-shadow {
+    box-shadow:
+      0 1px 1px rgba(242, 140, 130, 0.05),
+      0 2px 2px rgba(242, 140, 130, 0.05),
+      0 4px 4px rgba(242, 140, 130, 0.05),
+      0 8px 8px rgba(242, 140, 130, 0.05),
+      0 16px 16px rgba(242, 140, 130, 0.05);
+  }
+}
