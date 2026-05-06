@@ -3,35 +3,38 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { Resend } from "resend";
 import { z } from "zod";
+import path from "path";
+import { fileURLToPath } from "url";
 
 dotenv.config();
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Middleware
-app.use(cors()); // Allows your Vite app to talk to this server
+app.use(cors());
 app.use(express.json());
 
-// Zod Schema for Sanitization & Validation
+// Serve Vite build
+app.use(express.static(path.join(__dirname, "../dist")));
+
+// Zod Schema
 const ContactSchema = z.object({
   name: z.string().trim().min(2).max(50),
-  email: z.string().trim().email().toLowerCase(),
+  email: z.string().trim().toLowerCase().email(),
   subject: z.string().trim().min(5).max(100),
   message: z.string().trim().min(10).max(1000),
 });
 
 app.post("/api/contact", async (req, res) => {
   try {
-    // 1. Sanitize & Validate
     const validatedData = ContactSchema.parse(req.body);
-
-    // 2. Send Email via Resend
     const { name, email, subject, message } = validatedData;
 
     await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>", // Verify your domain in Resend to change this
-      to: [process.env.CONTACT_RECEIVER_EMAIL], // zerotoproduct@proton.me
+      from: process.env.FROM_EMAIL || "Contact Form <onboarding@resend.dev>",
+      to: [process.env.CONTACT_RECEIVER_EMAIL],
       subject: `New Contact: ${subject}`,
       replyTo: email,
       text: `From: ${name} (${email})\n\nMessage:\n${message}`,
@@ -42,11 +45,17 @@ app.post("/api/contact", async (req, res) => {
     if (error instanceof z.ZodError) {
       return res.status(400).json({ error: error.errors });
     }
+    console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
-const PORT = 3001;
-app.listen(PORT, () =>
-  console.log(`Server running on http://localhost:${PORT}`),
+// SPA fallback - must be after API routes
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../dist/index.html"));
+});
+
+const PORT = process.env.PORT || 3002;
+app.listen(PORT, "0.0.0.0", () =>
+  console.log(`Server running on port ${PORT}`),
 );

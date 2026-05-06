@@ -56,7 +56,7 @@ const ContactPage: React.FC = () => {
             </label>
             <input
               {...register("name")}
-              className='w-full p-3 bg-muted border border-border rounded-radius focus:ring-2 focus:ring-primary outline-none transition-all'
+              className='w-full p-3 bg-muted border border-border rounded-md focus:ring-2 focus:ring-primary outline-none transition-all'
               placeholder='Your Name'
             />
             {errors.name && (
@@ -73,7 +73,7 @@ const ContactPage: React.FC = () => {
               </label>
               <input
                 {...register("email")}
-                className='w-full p-3 bg-muted border border-border rounded-radius focus:ring-2 focus:ring-primary outline-none transition-all'
+                className='w-full p-3 bg-muted border border-border rounded-md focus:ring-2 focus:ring-primary outline-none transition-all'
                 placeholder='email@example.com'
               />
               {errors.email && (
@@ -88,7 +88,7 @@ const ContactPage: React.FC = () => {
               </label>
               <input
                 {...register("subject")}
-                className='w-full p-3 bg-muted border border-border rounded-radius focus:ring-2 focus:ring-primary outline-none transition-all'
+                className='w-full p-3 bg-muted border border-border rounded-md focus:ring-2 focus:ring-primary outline-none transition-all'
                 placeholder='How can we help?'
               />
               {errors.subject && (
@@ -106,7 +106,7 @@ const ContactPage: React.FC = () => {
             <textarea
               {...register("message")}
               rows={5}
-              className='w-full p-3 bg-muted border border-border rounded-radius focus:ring-2 focus:ring-primary outline-none transition-all'
+              className='w-full p-3 bg-muted border border-border rounded-md focus:ring-2 focus:ring-primary outline-none transition-all'
               placeholder='Tell us more about your project...'
             />
             {errors.message && (
@@ -119,7 +119,7 @@ const ContactPage: React.FC = () => {
           <button
             type='submit'
             disabled={status === "loading"}
-            className='w-full py-4 bg-primary text-primary-foreground font-display uppercase tracking-widest hover:opacity-90 transition-opacity rounded-radius disabled:opacity-50'
+            className='w-full py-4 bg-primary rounded-md text-primary-foreground font-body font-medium uppercase tracking-widest hover:opacity-90 transition-opacity rounded-radius disabled:opacity-50'
           >
             {status === "loading" ? "Sending..." : "Send Message"}
           </button>
