@@ -29,10 +29,9 @@ export default function Hero() {
 
         {/* Main title */}
         <h1
-          className='font-display font-bold text-accent-primary leading-none'
+          className='font-display font-bold text-accent-primary leading-none text-[64px] sm:text-[100px] md:text-[130px] lg:text-[160px]'
           style={{
-            fontSize: "clamp(100px, 12vw, 160px)",
-            letterSpacing: "15px",
+            letterSpacing: "-0.02em",
             animation: "fade-in-up 0.8s ease-out 0.2s both",
           }}
         >
@@ -41,7 +40,7 @@ export default function Hero() {
 
         {/* Divider */}
         <div
-          className='w-[120px] h-px bg-accent-secondary mt-6 mb-6'
+          className='w-16 sm:w-[120px] h-px bg-accent-secondary mt-4 sm:mt-6 mb-4 sm:mb-6'
           style={{
             animation: "fade-in-up 0.6s ease-out 0.3s both",
           }}
@@ -49,9 +48,8 @@ export default function Hero() {
 
         {/* Subtitle */}
         <p
-          className='font-body font-normal text-text-secondary max-w-[480px]'
+          className='font-body font-normal text-text-secondary max-w-[320px] sm:max-w-[480px] text-xl sm:text-2xl md:text-3xl'
           style={{
-            fontSize: "clamp(24px, 2.5vw, 32px)",
             animation: "fade-in-up 0.6s ease-out 0.4s both",
           }}
         >
@@ -60,21 +58,21 @@ export default function Hero() {
 
         {/* CTA buttons */}
         <div
-          className='flex flex-col sm:flex-row items-center gap-4 mt-10'
+          className='flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-8 sm:mt-10 w-full sm:w-auto px-4 sm:px-0'
           style={{
             animation: "fade-in-scale 0.5s ease-out 0.6s both",
           }}
         >
           <a
             href='#download'
-            className='inline-flex items-center gap-2.5 bg-accent-primary text-white font-body font-semibold text-base rounded-full px-7 py-4 button-shadow transition-all duration-250 ease-out hover:scale-[1.03] hover:shadow-button'
+            className='inline-flex items-center justify-center gap-2.5 bg-accent-primary text-white font-body font-semibold text-base rounded-full px-7 py-4 button-shadow transition-all duration-250 ease-out hover:scale-[1.03] hover:shadow-button'
           >
             <Smartphone className='w-5 h-5' />
             Download on the App Store
           </a>
           <a
             href='#how-it-works'
-            className='inline-flex items-center gap-2 border border-accent-secondary text-accent-primary font-body font-semibold text-base rounded-full px-7 py-4 transition-all duration-250 ease-out hover:bg-accent-primary hover:text-white hover:border-accent-primary'
+            className='inline-flex items-center justify-center gap-2 border border-accent-secondary text-accent-primary font-body font-semibold text-base rounded-full px-7 py-4 transition-all duration-250 ease-out hover:bg-accent-primary hover:text-white hover:border-accent-primary'
           >
             See how it works
           </a>
