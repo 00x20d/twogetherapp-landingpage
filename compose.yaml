@@ -1,12 +1,10 @@
 services:
   twogether-landing:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     container_name: twogether-landing
     restart: unless-stopped
     ports:
-      - "3002:3002"
+      - "127.0.0.1:3002:3002" # only localhost can reach Node, nginx proxies
     env_file:
       - .env
     environment:
