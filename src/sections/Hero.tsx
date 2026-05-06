@@ -72,7 +72,7 @@ export default function Hero() {
           </a>
           <a
             href='#how-it-works'
-            className='inline-flex items-center justify-center gap-2 border border-accent-secondary text-accent-primary font-body font-semibold text-base rounded-full px-7 py-4 transition-all duration-250 ease-out hover:bg-accent-primary hover:text-white hover:border-accent-primary'
+            className='inline-flex items-center justify-center gap-2 border border-accent-glow text-accent-primary font-body font-semibold text-base rounded-full px-7 py-4 transition-all duration-250 ease-out hover:bg-accent-primary hover:text-white hover:border-accent-primary'
           >
             See how it works
           </a>
