@@ -44,7 +44,7 @@ export default function CTA() {
         </p>
 
         <a
-          href='#'
+          href='https://apps.apple.com/us/app/twogether-connect-deeply/id6763849588'
           className={`inline-flex items-center gap-2.5 bg-accent-primary text-white font-body font-semibold text-lg rounded-full px-10 py-5 button-shadow transition-all duration-250 ease-out hover:scale-105 hover:shadow-glow ${
             isIntersecting ? "opacity-100 scale-100" : "opacity-0 scale-95"
           }`}

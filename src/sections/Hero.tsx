@@ -64,7 +64,7 @@ export default function Hero() {
           }}
         >
           <a
-            href='#download'
+            href='https://apps.apple.com/us/app/twogether-connect-deeply/id6763849588'
             className='inline-flex items-center justify-center gap-2.5 bg-accent-primary text-white font-body font-semibold text-base rounded-full px-7 py-4 button-shadow transition-all duration-250 ease-out hover:scale-[1.03] hover:shadow-button'
           >
             <Smartphone className='w-5 h-5' />
